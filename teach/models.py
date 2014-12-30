@@ -6,10 +6,10 @@ from django.db import models
 
 class SubjectTemplate(models.Model):
     name = models.CharField(max_length=30, verbose_name=u'模板名称')
-    script = models.TextField(verbose_name=u'模板脚本')
-    style = models.TextField(verbose_name=u'模板样式')
-    html = models.TextField(verbose_name=u'模板html')
-    image = models.ImageField(upload_to='img', verbose_name=u'模板图片')
+    script = models.TextField(verbose_name=u'模板脚本', null=True, blank=True)
+    style = models.TextField(verbose_name=u'模板样式', null=True, blank=True)
+    html = models.TextField(verbose_name=u'模板html', null=True, blank=True)
+    image = models.ImageField(upload_to='img', verbose_name=u'模板图片', null=True, blank=True)
     user = models.ForeignKey(User, null=True, blank=True, verbose_name=u'设计人')
 
 
