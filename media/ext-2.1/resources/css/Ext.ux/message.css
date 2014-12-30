@@ -1,0 +1,28 @@
+.msg_c {
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #d02d2d;
+	padding-left: 250px;
+	float: left;
+}
+
+.msg_l {
+	font-family: Arial;
+	font-size: 14px;
+	font-weight: bold;
+	color: #999999;
+	padding-left: 50px;
+	float: left;
+}
+
+.msg_r {
+	font-family: Arial;
+	font-size: 12px;
+	font-weight: bold;
+	color: #4b6888;
+	float: right;
+	margin-right: 20px;
+	text-decoration: none;
+	float: right;
+}

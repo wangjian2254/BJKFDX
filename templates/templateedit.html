@@ -1,0 +1,86 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+     <link rel="stylesheet" type="text/css" href="{% static "teach/css/style2.css" %}"/>
+
+<script type="text/javascript" src="{% static "teach/js/jquery-1.7.2.min.js" %}"></script>
+<script type="text/javascript" src="{% static "teach/js/artDialog.source.js" %}?skin=blue"></script>
+<script type="text/javascript" src="{% static "teach/js/iframeTools.source.js" %}"></script>
+    {{ s.style|safe }}
+    {{ s.script|safe }}
+<style>
+    .subject{
+	width:{% if s.image %}{{ s.image.width }}{% else %}945{% endif %}px;
+	height:{% if s.image %}{{ s.image.height }}{% else %}600{% endif %}px;
+	float:left;
+	background:url('{% if s.image %}{{ s.image.url }}{% endif %}') no-repeat 0px 0px;
+	position:relative;
+	margin-bottom:30px;
+
+}
+</style>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body style="padding: 20px;">
+<form action="/teach/save_template" method="POST" enctype="multipart/form-data" >
+<table width="100%">
+    <tr>
+        <td colspan="2" style="text-align: right"><a href="/teach/template_list">模板列表</a></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left">模板名称</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left"><input type="text" name="name" style="width:200px;" value="{{ s.name }}" /></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left">图片</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left"><input type="file" name="image" style="width:200px;" /></td>
+    </tr>
+
+    <tr>
+        <td  style="text-align: left">script代码</td>
+        <td  style="text-align: left">style代码</td>
+    </tr>
+    <tr>
+        <td  style="text-align: left" height="300px"><textarea name="script" style="width: 100%;height: 100%">{{ s.script|safe }}</textarea></td>
+        <td  style="text-align: left" height="300px"><textarea name="style" style="width: 100%;height: 100%">{{ s.style|safe }}</textarea></td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="text-align: left">html代码</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left" height="300px"><textarea name="html" style="width: 100%;height: 100%">{{ s.html|safe }}</textarea></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: right"><input type="submit" value="保存" /><input type="hidden" name="id" value="{% if s.id %}{{ s.id }}{% endif %}"/></td>
+    </tr>
+     <tr>
+        <td colspan="2" style="text-align: right">预览效果</td>
+    </tr>
+    <tr>
+
+        <td colspan="2" height="600px">
+        <div class="subject">
+                    {{ s.html|safe }}
+                </div>
+        </td>
+    </tr>
+ <tr>
+
+        <td colspan="2" height="600px">
+        <div class="subject2">
+
+                </div>
+        </td>
+    </tr>
+
+</table>
+    </form>
+</body>
+</html>

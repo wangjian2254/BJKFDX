@@ -1,0 +1,82 @@
+﻿.x-column-tree .x-tree-node {
+	ZOOM: 1
+}
+
+.x-column-tree .x-tree-node-el {
+	ZOOM: 1
+}
+
+.x-column-tree .x-tree-selected {
+	BACKGROUND: #ccc
+}
+
+.x-column-tree .x-tree-node A {
+	VERTICAL-ALIGN: middle;
+	LINE-HEIGHT: 18px
+}
+
+.x-column-tree .x-tree-node A SPAN {
+	
+}
+
+.x-column-tree .x-tree-node .x-tree-selected A SPAN {
+	BACKGROUND: none transparent scroll repeat 0% 0%;
+	COLOR: #000
+}
+
+.x-tree-col {
+	PADDING-RIGHT: 1px;
+	PADDING-LEFT: 1px;
+	FLOAT: left;
+	PADDING-BOTTOM: 0px;
+	OVERFLOW: hidden;
+	PADDING-TOP: 0px;
+	ZOOM: 1
+}
+
+.x-tree-col-text {
+	PADDING-RIGHT: 3px;
+	PADDING-LEFT: 5px;
+	PADDING-BOTTOM: 3px;
+	FONT: 12px arial, tahoma, helvetica, sans-serif;
+	OVERFLOW: hidden;
+	PADDING-TOP: 3px;
+	WHITE-SPACE: nowrap;
+	TEXT-OVERFLOW: ellipsis;
+	o-text-overflow: ellipsis
+}
+
+.x-tree-hd-text {
+	PADDING-RIGHT: 3px;
+	PADDING-LEFT: 5px;
+	PADDING-BOTTOM: 3px;
+	FONT: 12px arial, tahoma, helvetica, sans-serif;
+	OVERFLOW: hidden;
+	PADDING-TOP: 3px;
+	WHITE-SPACE: nowrap;
+	TEXT-OVERFLOW: ellipsis;
+	o-text-overflow: ellipsis
+}
+
+.x-tree-headers {
+	BACKGROUND: url(../../images/columnTree/grid/grid3-hrow.gif) #f9f9f9
+		repeat-x 0px bottom;
+	CURSOR: default;
+	ZOOM: 1
+}
+
+.x-tree-hd {
+	BORDER-RIGHT: #eee 1px solid;
+	FLOAT: left;
+	OVERFLOW: hidden;
+	BORDER-LEFT: #eee 1px solid
+}
+
+.task {
+	BACKGROUND-IMAGE: url(../../images/columnTree/fam/cog.png) ! important
+}
+
+.task-folder {
+	BACKGROUND-IMAGE: url(../../images/columnTree/fam/folder_go.png)
+		! important
+}

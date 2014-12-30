@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/><!--让设备1:1显示网页-->
+<title></title>
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+	<!--[if IE]>  
+	<link rel="stylesheet" type="text/css" href="assets/css/styleie.css"/>
+	<![endif]-->
+	<link rel="stylesheet" type="text/css" href="../resources/css/ext-all.css" />
+	<script type="text/javascript" src="../ext-base.js"></script>
+	<script type="text/javascript" src="../ext-all.js"></script>
+	<script type="text/javascript" src="../ext-lang-zh.js"></script>
+	<script type="text/javascript" src="comboxRender.js">
+	</script>
+	<script>
+	var w=null;
+	Ext.onReady(function(){
+		w=new Ext.Window({         
+           width:800,
+           height:700,
+           items:new Ext.Panel({
+                      border:false,
+                      items:[{html:"<div class='text'>"
+							+"<p> 2014年5月1日, 天津环城商贸有限公司销售给天津易广通科技有限公司键盘140个，每个不含税售价100元，不含税价款14,000元，增值税税率17%，增值税税款2,380元，价税合计16,380元</p>"
+							+"<p>销货单位：</p>"
+							+"<p>名称：天津环城商贸有限公司</p>"
+							+"<p>纳税人识别号：120117123456789</p>"
+							+"<p>地址、电话：华苑产业园区 022-5812345</p>"
+							+"<p>开户行及账号：中国工商银行天津榕苑路支行0302012345678901002</p>"
+							+"<p>购货单位：</p>"
+							+"<p>名称：天津易广通科技有限公司</p>"
+							+"<p>纳税人识别号：12011700021228</p>"
+							+"<p>地址、电话：华苑产业园区 022-5823456</p>"
+							+"<p>开户行及账号：中国工商银行天津榕苑路支行0302010000000000002</p>"
+							+"<p>收款人：王东，复核：李丽，开票人：王东</p>"
+            				+"</div>"}]//TabPanel中的标签页，以后再深入讨论
+                 }),
+           plain:false,//true则主体背景透明，false则主体有小差别的背景色，默认为false
+           modal :true,
+		   closeAction:'hide',
+		   title:"业务描述"
+        });	
+	});
+	function ywms(){
+		w.show();
+	}
+	function checkResult(){
+		var ti7 = document.getElementById('textinput7');
+		var ti12 = document.getElementById('textinput12');
+		var ti16 = document.getElementById('textinput16');
+		var ti19 = document.getElementById('textinput19');
+		var ti20 = document.getElementById('textinput20');
+		if(ti7.value==""){
+			alert("请输入第一行借方金额...");
+		}else if('1638000'==ti7.value){
+			if(ti12.value==""){
+				alert("请输入第二行贷方金额...");
+			}else if('1400000'==ti12.value){
+				if(ti16.value==""){
+				alert("请输入第三行贷方金额...");
+				}else if('238000'==ti16.value){
+					if(ti19.value==""){
+						alert("请输入第四行借方金额...");
+					}else if('1638000'==ti19.value){
+						if(ti20.value==""){
+							alert("请输入第四行贷方金额...");
+						}else if('1638000'==ti20.value){
+							ti7.style.color="black";
+							ti12.style.color="black";
+							ti16.style.color="black";
+							ti19.style.color="black";
+							ti20.style.color="black";
+							alert("输入全部正确,保存成功");
+							
+						}else{
+							ti20.style.color="red";
+						}
+					}else{
+						ti19.style.color="red";
+					}
+				}else{
+					ti16.style.color="red";
+				}
+			}else{
+				ti12.style.color="red";
+			}
+		}else{
+			ti7.style.color="red";
+		}		
+	}
+	</script>
+</head>
+<body>
+<div class="content_text">
+<div class="tabbox">
+		
+		<div id="tabcontent">
+			<ul class="tabul">
+            	
+				<div class="piao3">
+                	
+                    <table width="954" height="397" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td height="58" colspan="6"  style="padding:0px;">
+	<table width="100%" style="height:58px;margin:0px;" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="23" width="74"></td>
+        <td width="45"></td>
+        <td width="5"></td>
+        <td width="50"></td>
+        <td width="65"></td>
+        <td width="85"></td>
+        <td width="535"></td>
+        <td width="26"></td>
+        <td></td>
+      </tr>
+	  <tr>
+        <td height="33" ></td>
+        <td ><div id="textdiv1"></td>
+        <td></td>
+        <td><input type="text" class="textinput2"/></td>
+        <td></td>
+        <td><input type="text" class="textinput3"/></td>
+        <td></td>
+        <td><input type="text" class="textinput4"/></td>
+        <td></td>
+      </tr>
+       <tr>
+        <td  ></td>
+        <td ></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      
+    </table>       </td>
+    </tr>
+  <tr >
+    <td height="40" width="37" ></td>
+    <td width="237"></td>
+    <td width="274"></td>
+	<td width="182"></td>
+	<td width="182"></td>
+	<td ></td>
+  </tr>
+  
+  <tr>
+    <td height="49"></td>
+    <td><div id="textdiv2"/></td>
+    <td><div id="textdiv3"/></td>
+    <td><input type="text" class="textinput7" id="textinput7" /></td>
+    <td><input type="text" class="textinput8" id="textinput8"/></td>
+  </tr>
+  
+  <tr>
+    <td height="49"></td>
+    <td><div id="textdiv4"/></td>
+    <td><div id="textdiv5"/></td>
+    <td><input type="text" class="textinput11" id="textinput11"/></td>
+    <td><input type="text" class="textinput12" id="textinput12"/></td>
+  </tr>
+  <tr>
+    <td  height="49"></td>
+    <td><div id="textdiv6"/></td>
+    <td><div id="textdiv7"/></td>
+    <td><input type="text" class="textinput15" id="textinput15"/></td>
+    <td><input type="text" class="textinput16" id="textinput16"/></td>
+  </tr>
+  <tr>
+    <td  height="49"></td>
+    <td><div id="textdiv8"/></td>
+    <td><div id="textdiv9"/></td>
+    <td><input type="text" class="textinput19" id="textinput19"/></td>
+    <td><input type="text" class="textinput20" id="textinput20"/></td>
+  </tr>
+  <tr>
+    <td  height="49"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td  height="30"></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+  </tr>
+</table>                
+                </div>
+                <div class="btnbox">                  
+                    <a  id="ywms" href="javascript:ywms();">业务描述</a>
+                    <a href="#">原始票据</a>
+                    <a id="checkResult" href="javascript:checkResult();">保存</a>                
+				</div>
+			</ul>
+	
+	</div>
+</div>
+</body>
+</html>

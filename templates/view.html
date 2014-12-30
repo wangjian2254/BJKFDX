@@ -1,0 +1,145 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+   <link rel="stylesheet" type="text/css" href="{% static "teach/css/style2.css" %}"/>
+
+<script type="text/javascript" src="{% static "teach/js/jquery-1.7.2.min.js" %}"></script>
+<script type="text/javascript" src="{% static "teach/js/artDialog.source.js" %}?skin=blue"></script>
+<script type="text/javascript" src="{% static "teach/js/iframeTools.source.js" %}"></script>
+    {{ template.style|safe }}
+    {{ template.script|safe }}
+<style>
+    .subject{
+	width:{% if template.image %}{{ template.image.width }}{% else %}945{% endif %}px;
+	height:{% if template.image %}{{ template.image.height }}{% else %}600{% endif %}px;
+	float:left;
+	background:url({{ template.image.url }}) no-repeat 0px 0px;
+	position:relative;
+	margin-bottom:30px;
+}
+</style>
+    <title>{{ subject.name }} 预览</title>
+    <script>
+        var data={{ subject.data|safe }};
+    </script>
+    <script>
+        var answerdata={{ subject.json|safe }};
+    </script>
+    <script>
+       {{ subject.js|safe }}
+    </script>
+    <script>
+        function showPreData(){
+            if(data){
+                for(var p in data){
+                    try{
+                        var el=$('#'+p);
+                        if(el.is('input')){
+                            el.val(data[p]);
+                        }else{
+                            el.html(data[p]);
+                        }
+                    }catch (e){
+                        e;
+                    }
+
+                }
+            }
+        }
+        function check(){
+            var flag = true;
+            try{
+                flag=is_right();
+            }catch (error){
+                flag=false;
+                alert("自定义答案校验函数有错误");
+            }
+
+            if(answerdata){
+                for(var p in answerdata){
+                    try{
+                        var el=$('#'+p);
+                        if(el.is('input')){
+                            if(el.val()==answerdata[p]){
+                                el.css('border',null);
+                                el.css('color','black');
+                            }else{
+                                flag = false;
+                                el.css('border','solid 1px red');
+                                el.css('color','red');
+                            }
+                        }else{
+                            el.html(data[p]);
+                        }
+                    }catch (e){
+                        alert("答案校验函数有错误");
+                    }
+
+                }
+                if(flag){
+                    art.dialog({
+                        id: '',
+                        title: "答题结果",
+                        content:'答题正确',
+                        width: 400,
+                        height: 200,
+                        lock: true
+                    });
+                }else{
+                    art.dialog({
+                        id: '',
+                        title: "答题结果",
+                        content:'答题不正确',
+                        width: 400,
+                        height: 200,
+                        lock: true
+                    });
+                }
+            }
+        }
+        $(function(){
+            showPreData();
+
+        });
+    </script>
+</head>
+<body style="background:none;">
+
+<!-- the  content-->
+<div class="content_text">
+<div class="content_text_in">
+	<div class="tabbox">
+		<div class="tabmenu">
+
+		</div>
+		<div id="tabcontent">
+			<ul class="tabul">
+
+              <div class="btnbox">
+
+                    <a href="javascript:checkAnswer('记账凭证','9级_记账凭证填制_答案_2.html');" class="btn_jzpz"></a>
+                     <a href="javascript:check();"  class="btn_bc"></a>
+                    <a href="javascript:checkAnswer('答案','9级_登记会计账簿_答案1.html');"  class="btn_ckda"></a>
+    				<a href="javascript:kjzb();" class="btn_bz"></a>
+                    <a href="#" class="btn_jsq"></a>
+                    <a href="javascript:checkAnswer('视频','9级_视频.html');" class="btn_sp"></a>
+
+                </div>
+                <div class="subject">
+                    {{ template.html|safe }}
+                </div>
+
+			</ul>
+
+		</div>
+	</div>
+    </div>
+</div>
+<!-- the  content-->
+
+
+
+</body>
+</html>

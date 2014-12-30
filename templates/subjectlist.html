@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body style="padding: 20px;">
+<table width="100%">
+    <tr>
+        <td colspan="2" style="text-align: right"><a href="/teach/template_list">模板列表</a></td>
+    </tr>
+    <tr>
+        <td colspan="4">模板：{{ t.name }}&nbsp;&nbsp;&nbsp;&nbsp;<a href="/teach/add_subject?tid={{ t.id }}">添加题目</a></td>
+    </tr>
+    <tr>
+        <td width="50px">序号</td>
+        <td >题目名称</td>
+        <td width="100px">作者</td>
+        <td width="120px">操作</td>
+    </tr>
+    {% for s in tlist %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ s.name }}</td>
+            <td>{{ s.user.get_full_name }}</td>
+            <td><a href="/teach/add_subject?tid={{ t.id }}&id={{ s.id }}">修改</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/teach/look_view?sid={{ s.id }}">预览</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

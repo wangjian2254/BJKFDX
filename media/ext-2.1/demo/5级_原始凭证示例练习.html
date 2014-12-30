@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/><!--让设备1:1显示网页-->
+<title></title>
+<link rel="stylesheet" type="text/css" href="../assets/css/style.css"/>
+
+<script language="javascript">
+        function tabChange(obj, id) {
+            var arrayli = obj.parentNode.getElementsByTagName("li"); //获取li数组
+            var arrayul = document.getElementById(id).getElementsByTagName("ul"); //获取ul数组
+            for (i = 0; i < arrayul.length; i++) {
+                if (obj == arrayli[i]) {
+                    arrayli[i].className = "cli";
+                    arrayul[i].className = "";
+                }
+                else {
+                    arrayli[i].className = "";
+                    arrayul[i].className = "hidden";
+                }
+            }
+        }
+</script>
+
+</head>
+<body>
+
+
+<!-- the  content-->
+<div class="content_text">
+	<div class="tabbox">
+		<div class="tabmenu">
+			<ul>
+			  <li class="cli" onclick="tabChange(this,'tabcontent')">
+					增值税专用发票   
+				</li>
+			  <li onclick="tabChange(this,'tabcontent')">
+					 中国工商银行进账单
+				</li>
+				
+		  </ul>
+		</div>
+		<div id="tabcontent">
+			<ul class="tabul">
+            	
+				<div class="piao1">
+                	<input type="text" class="textinput1"/>
+                    <input type="text" class="textinput2"/>
+                    <input type="text" class="textinput3"/>
+                    <input type="text" class="textinput4"/>
+                    <input type="text" class="textinput5"/>
+                    <textarea class="textinput6"></textarea>
+                    <input type="text" class="textinput7"/>                   
+                    <input type="text" class="textinput8"/>
+                    <input type="text" class="textinput9"/>
+                    <input type="text" class="textinput10"/>
+                    <input type="text" class="textinput11"/>
+                    <input type="text" class="textinput12"/>
+                    <input type="text" class="textinput13"/>
+                    <input type="text" class="textinput14"/>
+                    
+                    <input type="text" class="textinput15"/>                    
+                    <input type="text" class="textinput16"/>
+                    
+                    <input type="text" class="textinput17"/>
+                    <input type="text" class="textinput18"/>
+                    <input type="text" class="textinput19"/>
+                    <input type="text" class="textinput20"/>
+                    
+                    <textarea class="textinput21"></textarea>
+                    
+                    <input type="text" class="textinput22"/>
+                    <input type="text" class="textinput23"/>
+                    <input type="text" class="textinput24"/>
+                    <input type="text" class="textinput25"/>
+                     
+                 
+                 
+                </div>
+                
+                <div class="btnbox">                
+               
+                    <a href="6级_业务描述.html" target="_blank">业务描述</a>
+                    <a href="9级_原始凭证示例练习_答案1.html" target="_blank">查看答案</a> 
+                         <a href="#">保存</a>                   
+                </div>
+			</ul>
+			<ul class="hidden">
+            
+            	<div class="piao2">
+                	<input type="text" class="textinput1"/>
+                    <input type="text" class="textinput2"/>
+                    <input type="text" class="textinput3"/>
+                    
+                    <input type="text" class="textinput4"/>
+                    <input type="text" class="textinput5"/>
+                    <input type="text" class="textinput6"/>
+                    
+                    
+                    <input type="text" class="textinput7"/>
+                    <input type="text" class="textinput8"/>
+                    <input type="text" class="textinput9"/>
+                    
+                    <input type="text" class="textinput10"/>
+                    <input type="text" class="textinput11" maxlength="11"/>
+                    
+                    <input type="text" class="textinput12"/>
+                    <input type="text" class="textinput13"/>
+                    <input type="text" class="textinput14"/>
+                    <input type="text" class="textinput15"/>
+                    
+                    <input type="text" class="textinput16"/>                    
+                    <input type="text" class="textinput17"/>                    
+      
+                </div>
+                
+                <div class="btnbox">                
+                   
+                    <a href="6级_业务描述.html" target="_blank">业务描述</a>
+                    <a href="9级_原始凭证示例练习_答案2.html" target="_blank">查看答案</a> 
+                     <a href="#">保存</a>               
+                </div>
+			</ul>
+			
+		</div>
+	</div>
+</div>
+<!-- the  content-->
+
+
+
+</body>
+
+
+</html>

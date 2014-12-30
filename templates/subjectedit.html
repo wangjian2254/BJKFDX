@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body style="padding: 20px;">
+<form action="/teach/save_subject" method="POST">
+<table width="100%">
+<tr>
+        <td colspan="2" style="text-align: left"></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left">使用的模板：{{ t.name }}<input name="templateid" type="hidden" value="{{ t.id }}"/></td>
+    </tr>
+<tr>
+        <td colspan="2" style="text-align: right"><a href="/teach/template_list">模板列表</a></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left">题目名称</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left"><input type="text" name="name" style="width:200px;" value="{{ s.name }}" /></td>
+    </tr>
+
+    <tr>
+        <td colspan="2" style="text-align: left">预制数据（json格式）</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left;"><textarea name="data" style="width: 100%;height: 300">{{ s.data|safe }}</textarea></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left">答案（json格式）</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left"><textarea name="json" style="width: 100%;height: 400">{{ s.json|safe }}</textarea></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left">自定义答案校验（js函数）</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: left"><textarea name="js" style="width: 100%;height: 400">{{ s.js|safe }}</textarea></td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: right"><input type="submit" value="保存" />{% if s.id %}&nbsp;&nbsp;&nbsp;<a href="/teach/look_view?sid={{ s.id }}" target="_blank">预览</a>{% endif %}<input type="hidden" name="id" value="{% if s.id %}{{ s.id }}{% endif %}"/></td>
+    </tr>
+
+</table>
+    </form>
+</body>
+</html>
