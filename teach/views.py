@@ -30,7 +30,8 @@ def save_template(request):
     if not uf.is_valid():
        return HttpResponse(u'提交的数据不正确，请通过后退按钮返回修改数据再提交。')
 
-    uf.instance.user = request.user
+    if not uf.instance.user:
+        uf.instance.user = request.user
     uf.instance.save()
     for s in Subject.objects.filter(template=uf.instance):
         s.is_right = None
@@ -66,7 +67,8 @@ def save_subject(request):
     if not uf.is_valid():
        return HttpResponse(u'提交的数据不正确，请通过后退按钮返回修改数据再提交。')
     uf.instance.template_id = request.POST.get('templateid')
-    uf.instance.user = request.user
+    if not uf.instance.user:
+        uf.instance.user = request.user
     uf.instance.is_right = None
     uf.instance.save()
     return render_to_response('subjectedit.html', {'s':uf.instance,'t':uf.instance.template,'msg':u'保存成功'})

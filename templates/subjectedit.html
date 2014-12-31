@@ -11,7 +11,10 @@
         <td colspan="2" style="text-align: left"></td>
     </tr>
     <tr>
-        <td colspan="2" style="text-align: left">使用的模板：{{ t.name }}<input name="templateid" type="hidden" value="{{ t.id }}"/></td>
+        <td colspan="2" style="text-align: left">使用的模板：{{ t.name }}&nbsp;&nbsp;&nbsp;模板ID:{{ t.id }}&nbsp;&nbsp;&nbsp;模板作者:{{ t.user.get_full_name }}<input name="templateid" type="hidden" value="{{ t.id }}"/></td>
+    </tr>
+<tr>
+        <td colspan="2" style="text-align: left">题ID：{{ s.id }}&nbsp;&nbsp;&nbsp;题作者:{{ s.user.get_full_name }}<input name="templateid" type="hidden" value="{{ t.id }}"/></td>
     </tr>
 <tr>
         <td colspan="2" style="text-align: right"><a href="/teach/template_list">模板列表</a></td>

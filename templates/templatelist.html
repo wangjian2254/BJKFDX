@@ -5,24 +5,38 @@
     <title></title>
 </head>
 <body>
-<table width="100%">
+<table width="100%" id="list">
     <tr>
         <td colspan="4"><a href="/teach/add_template">添加模板</a></td>
     </tr>
     <tr>
         <td width="50px">序号</td>
+        <td width="50px">ID</td>
         <td >模板名称</td>
         <td width="100px">作者</td>
         <td width="300px">操作</td>
     </tr>
     {% for t in tlist %}
-        <tr>
+        <tr style="background-color: #cccccc">
             <td>{{ forloop.counter }}</td>
+            <td>{{ t.id }}</td>
             <td>{{ t.name }}</td>
             <td>{{ t.user.get_full_name }}</td>
             <td><a href="/teach/add_template?id={{ t.id }}">修改</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/teach/subject_list?id={{ t.id }}">题列表</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/teach/add_subject?tid={{ t.id }}">增加新题</a>&nbsp;&nbsp;|&nbsp;&nbsp;</td>
         </tr>
     {% endfor %}
 </table>
+<script type = "text/javascript">
+                var table = document.getElementById("list");//根据table的 id 属性值获得对象
+                var rows = table.getElementsByTagName("tr");//获取table类型的tr元素的列表
+                for(var i = 0; i < rows.length; i++){
+                    if(i % 2 == 1){
+                        rows[i].style.backgroundColor = "#E5E5E5";//偶数行时背景色为#EAF2D3
+                    }
+                    else{
+                        rows[i].style.backgroundColor = "White";//单数行时背景色为white
+                    }
+                }
+        </script>
 </body>
 </html>
