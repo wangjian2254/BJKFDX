@@ -7,25 +7,44 @@
 <body style="padding: 20px;">
 <table width="100%" id="list">
     <tr>
-        <td colspan="2" style="text-align: right"><a href="/teach/template_list">模板列表</a></td>
+        <td colspan="7" style="text-align: right"><a href="/teach/template_list">模板列表</a></td>
     </tr>
+{% if t %}
     <tr>
-        <td colspan="4">模板：{{ t.name }}&nbsp;&nbsp;&nbsp;&nbsp;<a href="/teach/add_subject?tid={{ t.id }}">添加题目</a></td>
+        <td colspan="7">模板：{{ t.name }}&nbsp;&nbsp;&nbsp;&nbsp;<a href="/teach/add_subject?tid={{ t.id }}">添加题目</a></td>
     </tr>
+{% endif %}
     <tr>
         <td width="50px">序号</td>
         <td width="50px">ID</td>
+        <td width="300px">模板</td>
         <td >题目名称</td>
         <td width="100px">作者</td>
-        <td width="120px">操作</td>
+        <td width="200px">审核</td>
+        <td width="300px">操作</td>
     </tr>
     {% for s in tlist %}
         <tr>
             <td>{{ forloop.counter }}</td>
             <td>{{ s.id }}</td>
+            <td>{{ s.template.name }}</td>
             <td>{{ s.name }}</td>
             <td>{{ s.user.get_full_name }}</td>
-            <td><a href="/teach/add_subject?tid={{ t.id }}&id={{ s.id }}">修改</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/teach/look_view?sid={{ s.id }}">预览</a></td>
+            <td>{% if s.is_right %}通过：（{{ s.checker.get_full_name }}）{% else %}{% ifequal s.is_right None %}未审核{% else %}不通过：（{{ s.checker.get_full_name }}{% endifequal %}{% endif %}</td>
+            <td><a href="/teach/add_subject?tid={{ t.id }}&id={{ s.id }}">修改</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/teach/look_view?sid={{ s.id }}">预览</a>
+                {% if request.user.is_staff %}
+                    {% ifequal s.is_right None %}
+                        &nbsp;&nbsp;|&nbsp;&nbsp;<a href="/teach/check_subject?sid={{ s.id }}&do=1">通过</a>
+                    &nbsp;&nbsp;|&nbsp;&nbsp;<a href="/teach/check_subject?sid={{ s.id }}&do=0">不通过</a>
+                    {% else %}
+                        {% if s.is_right %}
+                            &nbsp;&nbsp;|&nbsp;&nbsp;<a href="/teach/check_subject?sid={{ s.id }}&do=0">不通过</a>
+                        {% else %}
+                            &nbsp;&nbsp;|&nbsp;&nbsp;<a href="/teach/check_subject?sid={{ s.id }}&do=1">通过</a>
+                        {% endif %}
+                    {% endifequal %}
+
+                {% endif %}</td>
         </tr>
     {% endfor %}
 </table>

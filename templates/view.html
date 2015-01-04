@@ -139,7 +139,26 @@
 </div>
 <!-- the  content-->
 
+<div style="float: right">
+    状态：{% if s.is_right %}通过：（{{ s.checker.get_full_name }}{% else %}{% ifequal s.is_right None %}未审核{% else %}不通过：（{{ s.checker.get_full_name }}{% endifequal %}{% endif %}
+<br/>
+<br/>
+                {% if request.user.is_staff %}
+                    {% ifequal s.is_right None %}
+                        <a href="/teach/check_subject?sid={{ s.id }}&do=1">通过</a>
+                        <br/>
+                        <br/>
+                    <a href="/teach/check_subject?sid={{ s.id }}&do=0">不通过</a>
+                    {% else %}
+                        {% if s.is_right %}
+                            <a href="/teach/check_subject?sid={{ s.id }}&do=0">不通过</a>
+                        {% else %}
+                            <a href="/teach/check_subject?sid={{ s.id }}&do=1">通过</a>
+                        {% endif %}
+                    {% endifequal %}
 
+                {% endif %}
+</div>
 
 </body>
 </html>
